@@ -18,7 +18,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect("mongodb+srv://ayuspandey041:kAWk2HNvWxzegz7o@workout.6kpzaso.mongodb.net/?retryWrites=true&w=majority&appName=Workout")
   .then((e) => console.log("MongoDB Connected"));
 
 app.set("view engine", "ejs");
