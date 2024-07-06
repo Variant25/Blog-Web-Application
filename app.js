@@ -18,7 +18,12 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 mongoose
-  .connect("mongodb+srv://ayuspandey041:kAWk2HNvWxzegz7o@workout.6kpzaso.mongodb.net/?retryWrites=true&w=majority&appName=Workout")
+  .connect("mongodb+srv://ayuspandey041:kAWk2HNvWxzegz7o@workout.6kpzaso.mongodb.net/?retryWrites=true&w=majority&appName=Workout", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000, // Increase the timeout setting
+    socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+  })
   .then((e) => console.log("MongoDB Connected"));
 
 app.set("view engine", "ejs");
